@@ -22,12 +22,14 @@ import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
+import androidx.navigation.NavController
+import androidx.navigation.compose.navigate
 import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.data.Puppy
 import com.example.androiddevchallenge.viewmodel.PuppyListViewModel
 
 @Composable
-fun PuppyList(viewModel: PuppyListViewModel) {
+fun PuppyList(viewModel: PuppyListViewModel, navController: NavController) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -36,6 +38,8 @@ fun PuppyList(viewModel: PuppyListViewModel) {
         },
         content = {
             ListContent(viewModel.items) {
+                navController.currentBackStackEntry?.arguments?.putParcelable("puppy", it)
+                navController.navigate("detail")
             }
         }
     )

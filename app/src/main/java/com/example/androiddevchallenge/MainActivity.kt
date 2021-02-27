@@ -26,6 +26,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.androiddevchallenge.ui.theme.MyTheme
+import com.example.androiddevchallenge.ui.view.detail.PuppyDetail
 import com.example.androiddevchallenge.ui.view.list.PuppyList
 import com.example.androiddevchallenge.viewmodel.PuppyListViewModel
 
@@ -44,6 +45,7 @@ class MainActivity : AppCompatActivity() {
 
 object Destinations {
     const val MAIN = "main"
+    const val DETAIL = "detail"
 }
 
 // Start building your app here!
@@ -52,7 +54,8 @@ fun MyApp(viewModel: PuppyListViewModel) {
     val navController = rememberNavController()
     Surface(color = MaterialTheme.colors.background) {
         NavHost(navController = navController, startDestination = Destinations.MAIN) {
-            composable(Destinations.MAIN) { PuppyList(viewModel) }
+            composable(Destinations.MAIN) { PuppyList(viewModel, navController) }
+            composable(Destinations.DETAIL) { PuppyDetail() }
         }
     }
 }
