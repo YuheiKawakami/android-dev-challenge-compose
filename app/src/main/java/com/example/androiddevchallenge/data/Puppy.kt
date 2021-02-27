@@ -15,8 +15,11 @@
  */
 package com.example.androiddevchallenge.data
 
+import android.os.Parcelable
 import androidx.annotation.DrawableRes
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Puppy(
     val id: String,
     val name: String,
@@ -24,4 +27,4 @@ data class Puppy(
     val breed: String,
     val description: String,
     val publishTime: String
-)
+) : Parcelable
