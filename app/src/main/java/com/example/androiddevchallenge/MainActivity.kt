@@ -55,7 +55,7 @@ fun MyApp(viewModel: PuppyListViewModel) {
     Surface(color = MaterialTheme.colors.background) {
         NavHost(navController = navController, startDestination = Destinations.MAIN) {
             composable(Destinations.MAIN) { PuppyList(viewModel, navController) }
-            composable(Destinations.DETAIL) { PuppyDetail() }
+            composable(Destinations.DETAIL) { PuppyDetail(navController) }
         }
     }
 }

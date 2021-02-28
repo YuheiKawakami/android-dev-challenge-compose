@@ -15,10 +15,65 @@
  */
 package com.example.androiddevchallenge.ui.view.detail
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import com.example.androiddevchallenge.R
+import com.example.androiddevchallenge.data.Puppy
 
 @Composable
-fun PuppyDetail() {
-    Text(text = "Puppy Detail")
+fun PuppyDetail(navController: NavController) {
+    val puppy = navController.previousBackStackEntry?.arguments?.getParcelable<Puppy>("puppy")
+
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text(text = "${puppy?.name}") },
+            )
+        }
+    ) {
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(all = 8.dp)
+        ) {
+            item {
+                Image(
+                    painter = painterResource(
+                        id = puppy?.image ?: R.drawable.ic_launcher_foreground
+                    ),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .height(300.dp)
+                        .fillMaxWidth()
+                )
+            }
+            item {
+                Text(text = "Name : ${puppy?.name}")
+                Spacer(modifier = Modifier.height(8.dp))
+            }
+            item {
+                Text(text = "Breed : ${puppy?.breed}")
+                Spacer(modifier = Modifier.height(8.dp))
+            }
+            item {
+                Text(text = "Description : ${puppy?.description}")
+                Spacer(modifier = Modifier.height(8.dp))
+            }
+            item {
+                Text(text = "Publish Time : ${puppy?.publishTime}")
+            }
+        }
+    }
 }
