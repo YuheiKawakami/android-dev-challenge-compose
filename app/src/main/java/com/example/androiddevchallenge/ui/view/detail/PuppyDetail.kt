@@ -74,6 +74,17 @@ fun PuppyDetail(navController: NavController) {
             }
             item {
                 Text(
+                    text = "Sex",
+                    style = TextStyle(fontWeight = FontWeight.Bold)
+                )
+                Text(
+                    text = "${puppy?.sex}",
+                    modifier = Modifier.padding(8.dp, 0.dp, 0.dp, 0.dp)
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+            }
+            item {
+                Text(
                     text = "Breed",
                     style = TextStyle(fontWeight = FontWeight.Bold)
                 )

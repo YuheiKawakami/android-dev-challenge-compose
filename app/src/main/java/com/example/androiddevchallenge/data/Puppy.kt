@@ -23,8 +23,9 @@ import kotlinx.android.parcel.Parcelize
 data class Puppy(
     val id: String,
     val name: String,
-    @DrawableRes val image: Int,
+    val sex: String,
     val breed: String,
     val description: String,
-    val publishTime: String
+    val publishTime: String,
+    @DrawableRes val image: Int
 ) : Parcelable
