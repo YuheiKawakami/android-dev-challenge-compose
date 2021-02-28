@@ -27,6 +27,8 @@ import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.androiddevchallenge.R
@@ -60,19 +62,47 @@ fun PuppyDetail(navController: NavController) {
                 )
             }
             item {
-                Text(text = "Name : ${puppy?.name}")
+                Text(
+                    text = "Name",
+                    style = TextStyle(fontWeight = FontWeight.Bold)
+                )
+                Text(
+                    text = "${puppy?.name}",
+                    modifier = Modifier.padding(8.dp, 0.dp, 0.dp, 0.dp)
+                )
                 Spacer(modifier = Modifier.height(8.dp))
             }
             item {
-                Text(text = "Breed : ${puppy?.breed}")
+                Text(
+                    text = "Breed",
+                    style = TextStyle(fontWeight = FontWeight.Bold)
+                )
+                Text(
+                    text = "${puppy?.breed}",
+                    modifier = Modifier.padding(8.dp, 0.dp, 0.dp, 0.dp)
+                )
                 Spacer(modifier = Modifier.height(8.dp))
             }
             item {
-                Text(text = "Description : ${puppy?.description}")
+                Text(
+                    text = "Description",
+                    style = TextStyle(fontWeight = FontWeight.Bold)
+                )
+                Text(
+                    text = "${puppy?.description}",
+                    modifier = Modifier.padding(8.dp, 0.dp, 0.dp, 0.dp)
+                )
                 Spacer(modifier = Modifier.height(8.dp))
             }
             item {
-                Text(text = "Publish Time : ${puppy?.publishTime}")
+                Text(
+                    text = "Publish Time",
+                    style = TextStyle(fontWeight = FontWeight.Bold)
+                )
+                Text(
+                    text = "${puppy?.publishTime}",
+                    modifier = Modifier.padding(8.dp, 0.dp, 0.dp, 0.dp)
+                )
             }
         }
     }
